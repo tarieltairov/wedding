@@ -1,0 +1,19 @@
+.wrapper {
+  height: 100dvh;
+  max-height: 638px;
+  background: url("../../assets/images/png/HeroBg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  .heading {
+    font-size: 48px;
+    font-weight: 400;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.45);
+    font-family: var(--antic-didone);
+  }
+}
