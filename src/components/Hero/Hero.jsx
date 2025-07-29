@@ -78,7 +78,10 @@ export function Hero({ isLocked, setIsLocked }) {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      style={{ "--height": `100${!isLocked ? "dvh" : "vh"}` }}
+    >
       <h1 className={styles.heading}>
         TARIEL <br />& <br />
         TATTYBUBU

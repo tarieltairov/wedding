@@ -1,6 +1,5 @@
 .wrapper {
-  height: 100dvh;
-  max-height: 638px;
+  height: var(--height);
   background: url("../../assets/images/png/HeroBg.png");
   background-position: center;
   background-repeat: no-repeat;

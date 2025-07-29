@@ -11,7 +11,7 @@ function App() {
   const [isLocked, setIsLocked] = useState(false);
 
   return (
-    <div>
+    <>
       <Hero isLocked={isLocked} setIsLocked={setIsLocked} />
       {isLocked && (
         <div style={{ marginTop: "-55px" }}>
@@ -22,7 +22,7 @@ function App() {
           <Timer />
         </div>
       )}
-    </div>
+    </>
   );
 }
 
