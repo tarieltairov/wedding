@@ -1,11 +1,11 @@
 import styles from "./Present.module.scss";
-import emblema from "../../assets/images/png/emblema.png";
+import emblema from "../../assets/images/svg/emblema.svg";
 import { Line } from "../../ui/Line";
 
 export function Present() {
   return (
     <div className={styles.container}>
-      <div className={styles.textWrapper}>
+      <div id="presentTextWrapper" className={styles.textWrapper}>
         <img className={styles.emblema} src={emblema} alt="emblema" />
         <p className={styles.firstText}>Урматтуу коноктор!</p>
         <p className={styles.secondText}>Сиздерди балдарыбыз</p>

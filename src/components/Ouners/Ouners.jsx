@@ -1,5 +1,5 @@
 import styles from "./Ouners.module.scss";
-import emblema from "../../assets/images/png/emblema.png";
+import emblema from "../../assets/images/svg/emblema.svg";
 
 export function Ouners() {
   return (

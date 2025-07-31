@@ -57,6 +57,14 @@ export function Hero({ isLocked, setIsLocked }) {
     if (currentSliderPositionRef.current >= lockThreshold) {
       setSliderPosition(maxTranslateX);
       setIsLocked(true);
+      setTimeout(() => {
+        const foundElement = document.getElementById("presentTextWrapper");
+        foundElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "start",
+        });
+      }, 0);
     } else {
       setSliderPosition(0);
       setIsLocked(false);
