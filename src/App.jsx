@@ -14,7 +14,7 @@ function App() {
     <>
       <Hero isLocked={isLocked} setIsLocked={setIsLocked} />
       {isLocked && (
-        <div style={{ marginTop: "-55px" }}>
+        <div style={{ marginTop: "-10vh" }}>
           <Present />
           <Calendar />
           <Address />
