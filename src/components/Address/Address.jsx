@@ -24,7 +24,7 @@ export function Address() {
       <Motion.h2
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },
@@ -36,7 +36,7 @@ export function Address() {
       <Motion.p
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },
@@ -52,7 +52,7 @@ export function Address() {
       <Motion.button
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },

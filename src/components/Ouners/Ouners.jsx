@@ -8,7 +8,7 @@ export function Ouners() {
       <Motion.p
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },
@@ -20,7 +20,7 @@ export function Ouners() {
       <Motion.h2
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },
@@ -33,7 +33,7 @@ export function Ouners() {
       <Motion.img
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },

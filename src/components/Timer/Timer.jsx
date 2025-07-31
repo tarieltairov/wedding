@@ -56,7 +56,7 @@ export const Timer = () => {
       <Motion.p
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 0 },
@@ -70,7 +70,7 @@ export const Timer = () => {
           <Motion.div
             initial="hidden"
             whileInView="visible"
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.5 }}
             variants={{
               visible: { opacity: 1, scale: 1 },
               hidden: { opacity: 0, scale: 0 },
