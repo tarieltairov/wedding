@@ -29,7 +29,7 @@ export function Calendar() {
         <Motion.h2
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           variants={{
             visible: { opacity: 1, scale: 1 },
             hidden: { opacity: 0, scale: 0 },
@@ -41,7 +41,7 @@ export function Calendar() {
         <Motion.h3
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           variants={{
             visible: { opacity: 1, scale: 1 },
             hidden: { opacity: 0, scale: 0 },
@@ -54,7 +54,7 @@ export function Calendar() {
         <Motion.div
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           variants={{
             visible: { opacity: 1, scale: 1 },
             hidden: { opacity: 0, scale: 0 },
@@ -79,7 +79,7 @@ export function Calendar() {
             <Motion.div
               initial="hidden"
               whileInView="visible"
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
               variants={{
                 visible: { opacity: 1, scale: 1 },
                 hidden: { opacity: 0, scale: 0 },
@@ -96,7 +96,7 @@ export function Calendar() {
         <Motion.p
           initial="hidden"
           whileInView="visible"
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           variants={{
             visible: { opacity: 1, scale: 1 },
             hidden: { opacity: 0, scale: 0 },
