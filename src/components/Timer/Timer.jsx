@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Timer.module.scss";
+import { motion as Motion } from "framer-motion";
 
 const targetDate = new Date("2025-10-12T19:00:00");
 
@@ -31,29 +32,55 @@ export const Timer = () => {
 
   const format = (n) => String(n).padStart(2, "0");
 
+  const timerFields = [
+    {
+      format: timeLeft.days,
+      label: "күн",
+    },
+    {
+      format: timeLeft.hours,
+      label: "саат",
+    },
+    {
+      format: timeLeft.minutes,
+      label: "мүнөт",
+    },
+    {
+      format: timeLeft.seconds,
+      label: "секунд",
+    },
+  ];
+
   return (
     <div className={styles.container}>
-      <p className={styles.label}>Үйлөнүү үлпөт тоюна чейин калды:</p>
+      <Motion.p
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        className={styles.label}
+      >
+        Үйлөнүү үлпөт тоюна чейин калды:
+      </Motion.p>
       <div className={styles.timer}>
-        <div>
-          <span className={styles.num}>{format(timeLeft.days)}</span>
-          <span className={styles.label}>күн</span>
-        </div>
-
-        <div>
-          <span className={styles.num}>{format(timeLeft.hours)} </span>
-          <span className={styles.label}>саат</span>
-        </div>
-
-        <div>
-          <span className={styles.num}>{format(timeLeft.minutes)}</span>
-          <span className={styles.label}>мүнөт</span>
-        </div>
-
-        <div>
-          <span className={styles.num}>{format(timeLeft.seconds)}</span>
-          <span className={styles.label}>секунд</span>
-        </div>
+        {timerFields.map((i, ind) => (
+          <Motion.div
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.5 }}
+            variants={{
+              visible: { opacity: 1, scale: 1 },
+              hidden: { opacity: 0, scale: 0 },
+            }}
+            key={ind}
+          >
+            <span className={styles.num}>{format(i.format)}</span>
+            <span className={styles.label}>{i.label}</span>
+          </Motion.div>
+        ))}
       </div>
     </div>
   );

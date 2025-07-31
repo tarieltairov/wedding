@@ -1,13 +1,47 @@
 import styles from "./Ouners.module.scss";
 import emblema from "../../assets/images/svg/emblema.svg";
+import { motion as Motion } from "framer-motion";
 
 export function Ouners() {
   return (
     <div className={styles.wrapper}>
-      <p className={styles.desk}>Терен урматтоо менен той ээлери: </p>
-      <h2 className={styles.names}>Калдарбек & Айгүл</h2>
+      <Motion.p
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        className={styles.desk}
+      >
+        Терен урматтоо менен той ээлери:{" "}
+      </Motion.p>
+      <Motion.h2
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        className={styles.names}
+      >
+        Калдарбек & Айгүл
+      </Motion.h2>
 
-      <img src={emblema} alt="emblema" className={styles.emblema} />
+      <Motion.img
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        src={emblema}
+        alt="emblema"
+        className={styles.emblema}
+      />
     </div>
   );
 }

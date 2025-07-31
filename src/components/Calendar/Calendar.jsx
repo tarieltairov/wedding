@@ -4,6 +4,7 @@ import firstBg from "../../assets/images/png/IMG_6860.png";
 import secondBg from "../../assets/images/png/image.png";
 import thirdBg from "../../assets/images/png/IMG_5168.png";
 import { Line } from "../../ui/Line";
+import { motion as Motion } from "framer-motion";
 
 const daysOfWeek = [
   { day: 6, label: "Mon" },
@@ -25,10 +26,41 @@ export function Calendar() {
   return (
     <div className={styles.container}>
       <div className={styles.mainWrapper}>
-        <h2 className={styles.title}>SAVE THE DATE</h2>
-        <h3 className={styles.month}>OCTOBER</h3>
+        <Motion.h2
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+          className={styles.title}
+        >
+          SAVE THE DATE
+        </Motion.h2>
+        <Motion.h3
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+          className={styles.month}
+        >
+          OCTOBER
+        </Motion.h3>
 
-        <div className={styles.week}>
+        <Motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+          className={styles.week}
+        >
           {daysOfWeek.map((i, ind) => (
             <div className={styles.item} key={ind}>
               <span className={styles.label}>{i.label}</span>
@@ -40,24 +72,40 @@ export function Calendar() {
               </div>
             </div>
           ))}
-        </div>
+        </Motion.div>
 
         <div className={styles.gallery}>
           {dateGallery.map((item, ind) => (
-            <div
+            <Motion.div
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.5 }}
+              variants={{
+                visible: { opacity: 1, scale: 1 },
+                hidden: { opacity: 0, scale: 0 },
+              }}
               className={styles.galleryItem}
               key={ind}
               style={{ background: `url(${item.url})` }}
             >
               <span>{item.num}</span>
-            </div>
+            </Motion.div>
           ))}
         </div>
 
-        <p className={styles.desk}>
+        <Motion.p
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.5 }}
+          variants={{
+            visible: { opacity: 1, scale: 1 },
+            hidden: { opacity: 0, scale: 0 },
+          }}
+          className={styles.desk}
+        >
           Аруу тилек, асыл максат жолубузда, Баш кошуп, турмуш куруу оюбузда.
           Өмүргө бирге аттандык кол кармашып, Келиңиздер ак никелүү тоюбузга!
-        </p>
+        </Motion.p>
       </div>
       <Line />
     </div>

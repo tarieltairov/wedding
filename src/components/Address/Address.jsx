@@ -1,5 +1,6 @@
 import { Line } from "../../ui/Line";
 import styles from "./Address.module.scss";
+import { motion as Motion } from "framer-motion";
 
 export function Address() {
   const onMapBtn = () => {
@@ -20,17 +21,47 @@ export function Address() {
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Дареги: </h2>
-      <p className={styles.desk}>
+      <Motion.h2
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        className={styles.title}
+      >
+        Дареги:
+      </Motion.h2>
+      <Motion.p
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        className={styles.desk}
+      >
         Бишкек шаары, Фрунзе көчөсү 133
         <br />
         Ресторан “AYAR”
         <br />
         12.10.2025 19:00
-      </p>
-      <button onClick={onMapBtn} className={styles.mapBtn}>
+      </Motion.p>
+      <Motion.button
+        initial="hidden"
+        whileInView="visible"
+        transition={{ duration: 0.5 }}
+        variants={{
+          visible: { opacity: 1, scale: 1 },
+          hidden: { opacity: 0, scale: 0 },
+        }}
+        onClick={onMapBtn}
+        className={styles.mapBtn}
+      >
         Картадан көрүү
-      </button>
+      </Motion.button>
       <Line />
     </div>
   );
