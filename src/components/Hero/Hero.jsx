@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.scss";
 import cn from "classnames";
 import chevron from "../../assets/images/svg/chevron.svg";
+import audioFile from "../../assets/songs/mus.mp3";
 
 export function Hero({ isLocked, setIsLocked }) {
   const [sliderPosition, setSliderPosition] = useState(0);
@@ -11,6 +12,9 @@ export function Hero({ isLocked, setIsLocked }) {
   const initialSliderPosition = useRef(0);
   const isDragging = useRef(false);
   const currentSliderPositionRef = useRef(0);
+
+  const audioRef = useRef(null);
+  const hasPlayedRef = useRef(false);
 
   const getMaxTranslateX = () => {
     if (containerRef.current && sliderRef.current) {
@@ -48,6 +52,12 @@ export function Hero({ isLocked, setIsLocked }) {
 
   const handleMouseUp = () => {
     isDragging.current = false;
+    // Если ещё не запускали — создаём и играем прямо в клике
+    if (!hasPlayedRef.current) {
+      audioRef.current = new Audio(audioFile);
+      audioRef.current.play().catch((err) => console.log(err));
+      hasPlayedRef.current = true;
+    }
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
     window.removeEventListener("touchmove", handleTouchMove);
@@ -59,11 +69,13 @@ export function Hero({ isLocked, setIsLocked }) {
       setIsLocked(true);
       setTimeout(() => {
         const foundElement = document.getElementById("presentTextWrapper");
-        foundElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "start",
-        });
+        if (foundElement) {
+          foundElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "start",
+          });
+        }
       }, 0);
     } else {
       setSliderPosition(0);
