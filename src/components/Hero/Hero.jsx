@@ -52,12 +52,6 @@ export function Hero({ isLocked, setIsLocked }) {
 
   const handleMouseUp = () => {
     isDragging.current = false;
-    // Если ещё не запускали — создаём и играем прямо в клике
-    if (!hasPlayedRef.current) {
-      audioRef.current = new Audio(audioFile);
-      audioRef.current.play().catch((err) => console.log(err));
-      hasPlayedRef.current = true;
-    }
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
     window.removeEventListener("touchmove", handleTouchMove);
@@ -65,6 +59,12 @@ export function Hero({ isLocked, setIsLocked }) {
     const maxTranslateX = getMaxTranslateX();
     const lockThreshold = maxTranslateX * 0.7;
     if (currentSliderPositionRef.current >= lockThreshold) {
+      // Если ещё не запускали — создаём и играем прямо в клике
+      if (!hasPlayedRef.current) {
+        audioRef.current = new Audio(audioFile);
+        audioRef.current.play().catch((err) => console.log(err));
+        hasPlayedRef.current = true;
+      }
       setSliderPosition(maxTranslateX);
       setIsLocked(true);
       setTimeout(() => {
