@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./Hero.module.scss";
 import cn from "classnames";
 import chevron from "../../assets/images/svg/chevron.svg";
-import audioFile from "../../assets/songs/mus.mp3";
 
 export function Hero({ isLocked, setIsLocked }) {
   const [sliderPosition, setSliderPosition] = useState(0);
@@ -61,7 +60,7 @@ export function Hero({ isLocked, setIsLocked }) {
     if (currentSliderPositionRef.current >= lockThreshold) {
       // Если ещё не запускали — создаём и играем прямо в клике
       if (!hasPlayedRef.current) {
-        audioRef.current = new Audio(audioFile);
+        audioRef.current = new Audio("/audio/mus.mp3");
         audioRef.current.play().catch((err) => console.log(err));
         hasPlayedRef.current = true;
       }
