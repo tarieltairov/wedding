@@ -14,6 +14,7 @@ export function Hero({ isLocked, setIsLocked }) {
 
   const audioRef = useRef(null);
   const hasPlayedRef = useRef(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const getMaxTranslateX = () => {
     if (containerRef.current && sliderRef.current) {
@@ -58,12 +59,11 @@ export function Hero({ isLocked, setIsLocked }) {
     const maxTranslateX = getMaxTranslateX();
     const lockThreshold = maxTranslateX * 0.7;
     if (currentSliderPositionRef.current >= lockThreshold) {
-      // Если ещё не запускали — создаём и играем прямо в клике
       if (!hasPlayedRef.current) {
         audioRef.current = new Audio("/audio/mus.mp3");
-        audioRef.current.play().catch((err) => console.log(err));
         hasPlayedRef.current = true;
       }
+      setIsPlaying(true);
       setSliderPosition(maxTranslateX);
       setIsLocked(true);
       setTimeout(() => {
@@ -77,6 +77,7 @@ export function Hero({ isLocked, setIsLocked }) {
         }
       }, 0);
     } else {
+      setIsPlaying(false);
       setSliderPosition(0);
       setIsLocked(false);
     }
@@ -95,6 +96,42 @@ export function Hero({ isLocked, setIsLocked }) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Этот useEffect управляет воспроизведением аудио
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying && !document.hidden) {
+        audioRef.current
+          .play()
+          .catch((err) =>
+            console.error("Ошибка при воспроизведении аудио:", err)
+          );
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
+  // Этот useEffect добавляет и убирает обработчик события видимости страницы
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (audioRef.current) {
+        if (document.hidden) {
+          audioRef.current.pause();
+        } else if (isPlaying) {
+          audioRef.current
+            .play()
+            .catch((err) =>
+              console.error("Ошибка при воспроизведении аудио:", err)
+            );
+        }
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying]);
 
   return (
     <div
