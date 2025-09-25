@@ -7,13 +7,13 @@ import { Line } from "../../ui/Line";
 import { motion as Motion } from "framer-motion";
 
 const daysOfWeek = [
-  { day: 6, label: "Mon" },
-  { day: 7, label: "Tue" },
-  { day: 8, label: "Wed" },
-  { day: 9, label: "Thu" },
-  { day: 10, label: "Fri" },
-  { day: 11, label: "Sat" },
-  { day: 12, label: "Sun" },
+  { day: 6, label: "Пн" },
+  { day: 7, label: "Вт" },
+  { day: 8, label: "Ср" },
+  { day: 9, label: "Чт" },
+  { day: 10, label: "Пт" },
+  { day: 11, label: "Сб" },
+  { day: 12, label: "Вс" },
 ];
 
 const dateGallery = [
@@ -36,7 +36,7 @@ export function Calendar() {
           }}
           className={styles.title}
         >
-          SAVE THE DATE
+          Өкөрүлүүчү күнү
         </Motion.h2>
         <Motion.h3
           initial="hidden"
@@ -48,7 +48,7 @@ export function Calendar() {
           }}
           className={styles.month}
         >
-          OCTOBER
+          ОКТЯБРЬ
         </Motion.h3>
 
         <Motion.div
