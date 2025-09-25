@@ -36,7 +36,7 @@ export function Calendar() {
           }}
           className={styles.title}
         >
-          Өкөрүлүүчү күнү
+          Өткөрүлүүчү күнү
         </Motion.h2>
         <Motion.h3
           initial="hidden"
