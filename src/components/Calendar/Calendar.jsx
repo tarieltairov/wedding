@@ -1,8 +1,8 @@
 import styles from "./Calendar.module.scss";
 import heart from "../../assets/images/svg/heart.svg";
-import firstBg from "../../assets/images/png/IMG_6860.png";
-import secondBg from "../../assets/images/png/image.png";
-import thirdBg from "../../assets/images/png/IMG_5168.png";
+import firstBg from "../../assets/images/png/IMG_6860.webp";
+import secondBg from "../../assets/images/png/image.webp";
+import thirdBg from "../../assets/images/png/Frame 2087328555.webp";
 import { Line } from "../../ui/Line";
 import { motion as Motion } from "framer-motion";
 
