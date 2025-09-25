@@ -10,14 +10,16 @@ button {
   cursor: pointer;
 }
 
-body {
+#root {
   background-color: var(--white);
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 main {
   max-width: 425px;
   min-width: 320px;
   box-shadow: 0 0 8px 5px rgba(34, 60, 80, 0.2);
+  width: 100%;
 }
