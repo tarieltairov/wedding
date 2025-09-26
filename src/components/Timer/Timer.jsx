@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Timer.module.scss";
 import { motion as Motion } from "framer-motion";
 
-const targetDate = new Date("2025-10-12T19:00:00");
+const targetDate = new Date("2025-10-12T16:00:00");
 
 const getTimeRemaining = (end) => {
   const total = end.getTime() - new Date().getTime();
